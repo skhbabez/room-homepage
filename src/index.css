@@ -41,7 +41,7 @@
 
   --text-3-medium: 1rem;
   --text-3-medium--line-height: 1.4;
-  --text-3-medium--letter-spacing: -0.3125rem;
+  --text-3-medium--letter-spacing: -0.03125rem;
   --text-3-medium--font-weight: 500;
 
   --text-4: 0.9375rem;
@@ -49,7 +49,7 @@
   --text-4--letter-spacing: 0.78125rem;
   --text-4--font-weight: 500;
 
-  --font-display: "League Spartan" sans-serif;
+  --font-display: "League Spartan", sans-serif;
 }
 
 @layer base {
