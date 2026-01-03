@@ -1,4 +1,6 @@
+import { useRef } from "react";
 import arrow from "../../assets/icon-arrow.svg";
+import CarouselButton from "../CarouselButton/CarouselButton";
 
 const content = [
   {
@@ -22,36 +24,70 @@ const content = [
 ];
 
 const CarouselItem = () => {
+  const carouselRef = useRef<HTMLUListElement>(null);
+
+  const leftClickHandler = () => {
+    if (carouselRef.current) {
+      const element = carouselRef.current;
+      const width = element.clientWidth;
+      element.scrollBy({
+        left: -width,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const rightClickHandler = () => {
+    if (carouselRef.current) {
+      const element = carouselRef.current;
+      const width = element.clientWidth;
+      element.scrollBy({
+        left: width,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
-    <ul className="flex snap-x snap-mandatory overflow-hidden">
-      {content.map(({ title, text, imageMobile, imageDesktop }) => (
-        <li className="flex-[0_0_100%] snap-center">
-          <div className="flex flex-col xl:flex-row w-full">
-            <picture className="w-full">
-              <source srcSet={imageDesktop} media="(min-width: 48em)" />
-              <img
-                height={320}
-                width={375}
-                className="object-cover object-center w-full h-80 md:h-100 xl:h-133.5"
-                src={imageMobile}
-                alt=""
-              />
-            </picture>
-            <div className="py-16 px-[2.03125rem] md:px-16 xl:px-25 xl:py-34.75 xl:min-w-150 xl:w-min">
-              <h1 className="text-2 md:text-1 ">{title}</h1>
-              <p className="text-3-medium text-grey-500 mt-4">{text}</p>
-              <a
-                href="#"
-                className="flex items-center justify-between md:justify-self-start gap-6 xl:gap-8 mt-8 md:mt-6"
-              >
-                <span className="uppercase text-4">shop now</span>
-                <img src={arrow} alt="" />
-              </a>
+    <div className="relative">
+      <CarouselButton
+        className="absolute right-0 top-90 -translate-y-full md:top-100 xl:right-150 xl:top-133.5 xl:translate-x-full"
+        onLeftClick={leftClickHandler}
+        onRightClick={rightClickHandler}
+      />
+      <ul
+        ref={carouselRef}
+        className="flex snap-x snap-mandatory overflow-hidden"
+      >
+        {content.map(({ title, text, imageMobile, imageDesktop }) => (
+          <li className="flex-[0_0_100%] snap-center">
+            <div className="flex flex-col xl:flex-row w-full">
+              <picture className="w-full">
+                <source srcSet={imageDesktop} media="(min-width: 48em)" />
+                <img
+                  height={320}
+                  width={375}
+                  className="object-cover object-center w-full h-90 md:h-100 xl:h-133.5"
+                  src={imageMobile}
+                  alt=""
+                />
+              </picture>
+              <div className="py-16 px-[2.03125rem] md:px-16 xl:px-25 xl:py-34.75 xl:w-150 xl:shrink-0">
+                <h1 className="text-2 md:text-1 ">{title}</h1>
+                <p className="text-3-medium text-grey-500 mt-4">{text}</p>
+                <a
+                  href="#"
+                  className="flex items-center justify-between md:justify-self-start gap-6 xl:gap-8 mt-8 md:mt-6"
+                >
+                  <span className="uppercase text-4">shop now</span>
+                  <img src={arrow} alt="" />
+                </a>
+              </div>
             </div>
-          </div>
-        </li>
-      ))}{" "}
-    </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

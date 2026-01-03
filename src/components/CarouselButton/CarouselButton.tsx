@@ -6,12 +6,16 @@ import clsx from "clsx";
 interface CarouselButtonProps extends ComponentProps<"div"> {
   onLeftClick: () => void;
   onRightClick: () => void;
+  disableLeft?: boolean;
+  disableRight?: boolean;
 }
 
 const CarouselButton = ({
   onLeftClick,
   onRightClick,
   className,
+  disableLeft = false,
+  disableRight = false,
   ...props
 }: CarouselButtonProps) => {
   return (
@@ -21,6 +25,7 @@ const CarouselButton = ({
     >
       <button
         onClick={onLeftClick}
+        disabled={disableLeft}
         className="flex-1 bg-black outline-none focus-visible:bg-grey-800 hover:bg-grey-800 transition-colors duration-150 ease-in"
       >
         <img
@@ -31,6 +36,7 @@ const CarouselButton = ({
       </button>
       <button
         onClick={onRightClick}
+        disabled={disableRight}
         className="flex-1 bg-black outline-none focus-visible:bg-grey-800 hover:bg-grey-800 transition-colors duration-150 ease-in"
       >
         <img
