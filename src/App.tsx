@@ -1,5 +1,11 @@
+import CarouselItem from "./components/CarouselItem/CarouselItem";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <CarouselItem />
+    </>
+  );
 }
 
 export default App;
