@@ -4,6 +4,12 @@ import CarouselButton from "../CarouselButton/CarouselButton";
 
 const content = [
   {
+    title: "Manufactured with the best materials",
+    text: "Our modern furniture store provide a high level of quality. Our company has invested in advanced technology to ensure that every product is made as perfect and as consistent as possible. With three decades of experience in this industry, we understand what customers want for their home and office.",
+    imageMobile: "/images/mobile-image-hero-3.jpg",
+    imageDesktop: "/images/desktop-image-hero-3.jpg",
+  },
+  {
     title: "Discover innovative ways to decorate",
     text: "We provide unmatched quality, comfort, and style for property owners across the country. Our experts combine form and function in bringing your vision to life. Create a room in your own style with our collection and make your property a reflection of you and what you love.",
     imageMobile: "/images/mobile-image-hero-1.jpg",
@@ -21,6 +27,12 @@ const content = [
     imageMobile: "/images/mobile-image-hero-3.jpg",
     imageDesktop: "/images/desktop-image-hero-3.jpg",
   },
+  {
+    title: "Discover innovative ways to decorate",
+    text: "We provide unmatched quality, comfort, and style for property owners across the country. Our experts combine form and function in bringing your vision to life. Create a room in your own style with our collection and make your property a reflection of you and what you love.",
+    imageMobile: "/images/mobile-image-hero-1.jpg",
+    imageDesktop: "/images/desktop-image-hero-1.jpg",
+  },
 ];
 
 const CarouselItem = () => {
@@ -29,7 +41,14 @@ const CarouselItem = () => {
   const leftClickHandler = () => {
     if (carouselRef.current) {
       const element = carouselRef.current;
-      const width = element.clientWidth;
+      const fullWidth = element.scrollWidth;
+      const width = fullWidth / content.length;
+      if (element.scrollLeft < 2 * width) {
+        element.scrollBy({
+          left: fullWidth,
+          behavior: "instant",
+        });
+      }
       element.scrollBy({
         left: -width,
         behavior: "smooth",
@@ -40,7 +59,14 @@ const CarouselItem = () => {
   const rightClickHandler = () => {
     if (carouselRef.current) {
       const element = carouselRef.current;
-      const width = element.clientWidth;
+      const fullWidth = element.scrollWidth;
+      const width = fullWidth / content.length;
+      if (element.scrollLeft > fullWidth - 2 * width) {
+        element.scrollBy({
+          left: -fullWidth,
+          behavior: "instant",
+        });
+      }
       element.scrollBy({
         left: width,
         behavior: "smooth",
