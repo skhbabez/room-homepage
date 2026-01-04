@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import arrow from "../../assets/icon-arrow.svg";
-import CarouselButton from "../CarouselButton/CarouselButton";
+import CarouselButton from "../../components/CarouselButton/CarouselButton";
 
 const content = [
   {

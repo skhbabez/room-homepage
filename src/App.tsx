@@ -1,9 +1,11 @@
-import Carousel from "./components/CarouselItem/Carousel";
+import About from "./layouts/About/About";
+import Carousel from "./layouts/Carousel/Carousel";
 
 function App() {
   return (
     <>
       <Carousel />
+      <About />
     </>
   );
 }
