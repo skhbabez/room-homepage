@@ -37,6 +37,48 @@ Users should be able to:
 
 ### What I learned
 
+### Carousel
+
+I tried to build the slider with as little JavaScript as possible. I also did not want to use state so I can use CSS scroll smoothing to create a nice transition without relying on animations. I turned a flex container into a scroll container and set the carousel items to flex: 0 0 100%.
+JavaScript was used to scroll it.
+
+```ts
+const carouselRef = useRef<HTMLUListElement>(null);
+
+const leftClickHandler = () => {
+  if (carouselRef.current) {
+    const element = carouselRef.current;
+    const width = element.clientWidth;
+    element.scrollBy({
+      left: -width,
+      behavior: "smooth",
+    });
+  }
+};
+```
+
+The downside of this approach is that we can't control the button state to disable them. In another attempt I also tried to make it infinitely scrolling by skipping to the other side using instant scrolling behaviour, using clones of the carousel items on either side. But this caused janky transitions when the user scrolled too quickly.
+
+```ts
+const leftClickHandler = () => {
+  if (carouselRef.curren) {
+    const element = carouselRef.current;
+    const fullWidth = element.scrollWidth;
+    const width = fullWidth / content.length;
+    if (element.scrollLeft < 2 * width) {
+      element.scrollBy({
+        left: fullWidth,
+        behavior: "instant",
+      });
+    }
+    element.scrollBy({
+      left: -width,
+      behavior: "smooth",
+    });
+  }
+};
+```
+
 ### Continued development
 
 ### Useful resources
