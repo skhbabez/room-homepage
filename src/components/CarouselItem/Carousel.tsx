@@ -23,7 +23,7 @@ const content = [
   },
 ];
 
-const CarouselItem = () => {
+const Carousel = () => {
   const carouselRef = useRef<HTMLUListElement>(null);
 
   const leftClickHandler = () => {
@@ -57,10 +57,10 @@ const CarouselItem = () => {
       />
       <ul
         ref={carouselRef}
-        className="flex snap-x snap-mandatory overflow-hidden"
+        className="flex snap-x snap-mandatory overflow-hidden carousel"
       >
         {content.map(({ title, text, imageMobile, imageDesktop }) => (
-          <li className="flex-[0_0_100%] snap-center">
+          <li key={title} className="flex-[0_0_100%] snap-center">
             <div className="flex flex-col xl:flex-row w-full">
               <picture className="w-full">
                 <source srcSet={imageDesktop} media="(min-width: 48em)" />
@@ -91,4 +91,4 @@ const CarouselItem = () => {
   );
 };
 
-export default CarouselItem;
+export default Carousel;

@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import CarouselItem from "./CarouselItem";
+import Carousel from "./Carousel";
 
 const meta = {
-  component: CarouselItem,
+  component: Carousel,
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta<typeof CarouselItem>;
+} satisfies Meta<typeof Carousel>;
 
 export default meta;
 
