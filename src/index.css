@@ -62,3 +62,45 @@
     @apply font-display;
   }
 }
+@layer components {
+  @supports selector(::scroll-button(*)) {
+    /* tailwind does not seem to support scroll buttons yet */
+    .carousel-controls {
+      position: relative;
+    }
+
+    .carousel-controls::scroll-button(*) {
+      position: absolute;
+    }
+    .carousel-controls::scroll-button(left) {
+      @apply right-0 top-90 -translate-y-full -translate-x-full md:top-100 xl:right-150 xl:top-133.5 xl:translate-x-full;
+    }
+
+    .carousel-controls::scroll-button(right) {
+      @apply right-0 top-90 -translate-y-full md:top-100 xl:right-150 xl:top-133.5 xl:translate-x-[200%];
+    }
+
+    .carousel-controls::scroll-button(*) {
+      @apply bg-black outline-none border-none cursor-pointer transition-colors duration-150 ease-in z-10 aspect-square h-14 md:h-20 bg-size-[auto_16.8px] md:bg-size-[auto_24px] bg-no-repeat bg-center;
+    }
+
+    .carousel-controls::scroll-button(*):hover,
+    .carousel-controls::scroll-button(*):focus-visible {
+      @apply bg-grey-800;
+    }
+
+    .carousel-controls::scroll-button(*):disabled {
+      @apply bg-grey-500;
+    }
+
+    .carousel-controls::scroll-button(left) {
+      content: "";
+      @apply bg-[url("src/assets/icon-angle-left.svg")];
+    }
+
+    .carousel-controls::scroll-button(right) {
+      content: "";
+      @apply bg-[url("src/assets/icon-angle-right.svg")];
+    }
+  }
+}

@@ -51,13 +51,13 @@ const Carousel = () => {
   return (
     <div className="relative">
       <CarouselButton
-        className="absolute right-0 top-90 -translate-y-full md:top-100 xl:right-150 xl:top-133.5 xl:translate-x-full"
+        className="absolute right-0 top-90 -translate-y-full md:top-100 xl:right-150 xl:top-133.5 xl:translate-x-full supports-[selector(::scroll-button(*))]:hidden"
         onLeftClick={leftClickHandler}
         onRightClick={rightClickHandler}
       />
       <ul
         ref={carouselRef}
-        className="flex snap-x snap-mandatory overflow-hidden"
+        className="flex snap-x snap-mandatory overflow-hidden scroll-smooth carousel-controls "
       >
         {content.map(({ title, text, imageMobile, imageDesktop }) => (
           <li key={title} className="flex-[0_0_100%] snap-center">

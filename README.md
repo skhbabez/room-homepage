@@ -79,6 +79,22 @@ const leftClickHandler = () => {
 };
 ```
 
+Modern CSS also offers ::scroll-button as a pseudo-class to create CSS-only carousels. It's not supported by Firefox yet, making it necessary to check for compatibility first. Firefox users still get the JavaScript solution, but Chrome and Edge users get the pure CSS solution.
+
+```css
+.carousel-controls::scroll-button(left) {
+  content: "";
+  @apply bg-[url("src/assets/icon-angle-left.svg")];
+}
+
+.carousel-controls::scroll-button(right) {
+  content: "";
+  @apply bg-[url("src/assets/icon-angle-right.svg")];
+}
+```
+
 ### Continued development
 
 ### Useful resources
+
+[CSS only Carousels](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Overflow/Carousels) - This helped me create the css only carousel for non- firefox users

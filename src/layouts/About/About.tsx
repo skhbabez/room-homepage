@@ -18,7 +18,7 @@ const About = () => {
         </p>
       </div>
       <img
-        className="w-full max-h-75"
+        className="w-full max-h-75 xl:max-w-110"
         src="/images/image-about-light.jpg"
         alt=""
       />
