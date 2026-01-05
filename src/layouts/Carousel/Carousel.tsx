@@ -77,10 +77,14 @@ const Carousel = () => {
                 <p className="text-3-medium text-grey-500 mt-4">{text}</p>
                 <a
                   href="#"
-                  className="flex items-center justify-between md:justify-self-start gap-6 xl:gap-8 mt-8 md:mt-6"
+                  className="outline-none group flex items-center justify-between md:justify-self-start gap-6 xl:gap-8 mt-8 md:mt-6"
                 >
-                  <span className="uppercase text-4">shop now</span>
-                  <img src={arrow} alt="" />
+                  <span className="uppercase text-4 peer">shop now</span>
+                  <img
+                    className="group-hover:translate-x-7 group-focus-visible:translate-x-7 transition-transform duration-600 ease-in-out "
+                    src={arrow}
+                    alt=""
+                  />
                 </a>
               </div>
             </div>
