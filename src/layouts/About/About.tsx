@@ -3,7 +3,7 @@ const About = () => {
     <section className="xl:flex xl:max-h-66.5">
       <img
         className="w-full max-h-75"
-        src="/images/image-about-dark.jpg"
+        src="images/image-about-dark.jpg"
         alt=""
       />
       <div className="py-12 px-8 md:p-16 xl:py-14.75 xl:px-12">
@@ -19,7 +19,7 @@ const About = () => {
       </div>
       <img
         className="w-full max-h-75 xl:max-w-110"
-        src="/images/image-about-light.jpg"
+        src="images/image-about-light.jpg"
         alt=""
       />
     </section>
