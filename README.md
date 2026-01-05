@@ -125,6 +125,8 @@ I wanted to try out a CSS only solution, since the popover API is now newly avai
       >
 ```
 
+The hover effect for the nav links i implemented in a similiar way this.
+
 ### Continued development
 
 ### Useful resources
