@@ -4,13 +4,36 @@ import menu from "../../assets/icon-hamburger.svg";
 import close from "../../assets/icon-close.svg";
 const NavMenu = ({ children, className, ...props }: ComponentProps<"div">) => {
   return (
-    <div className={clsx("flex flex-col items-center", className)} {...props}>
-      <button popoverTarget="navigation" popoverTargetAction="show">
+    <div
+      className={clsx("flex flex-col xl:flex-row items-center", className)}
+      {...props}
+    >
+      <button
+        className="xl:hidden"
+        popoverTarget="navigation"
+        popoverTargetAction="show"
+      >
         <img src={menu} alt="open navigation" />
       </button>
-
+      <div className="hidden xl:block">{children}</div>
       <div
-        className="w-full fixed bg-white py-11.75 px-[1.51375rem] md:px-[3.96875rem] backdrop:bg-black/50"
+        className="w-full fixed bg-white py-11.75 px-[1.51375rem] md:px-[3.96875rem]
+        xl:hidden 
+
+        -translate-y-full
+        [:popover-open]:translate-y-0
+        starting:[:popover-open]:-translate-y-full
+        transition-discrete
+        transition-[translate,display,overlay] 
+        duration-800
+        
+        backdrop:bg-black/0
+        [:popover-open]:backdrop:bg-black/50
+        starting:[:popover-open]:backdrop:bg-black/0
+        backdrop:transition-[background-color,display,overlay]
+        backdrop:duration-800
+        backdrop:transition-discrete
+        "
         id="navigation"
         popover="auto"
       >
