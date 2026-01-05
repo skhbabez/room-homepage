@@ -62,7 +62,7 @@ const NavList = ({ children, className, ...props }: ComponentProps<"ul">) => {
 
 const NavItem = ({ children, className, ...props }: ComponentProps<"li">) => {
   return (
-    <li className={clsx("", className)} {...props}>
+    <li className={clsx("leading-none", className)} {...props}>
       {children}
     </li>
   );
