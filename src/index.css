@@ -95,12 +95,12 @@
 
     .carousel-controls::scroll-button(left) {
       content: "";
-      @apply bg-[url("assets/images/icon-angle-left.svg")];
+      @apply bg-[url("images/icon-angle-left.svg")];
     }
 
     .carousel-controls::scroll-button(right) {
       content: "";
-      @apply bg-[url("assets/images/icon-angle-right.svg")];
+      @apply bg-[url("images/icon-angle-right.svg")];
     }
   }
 }
