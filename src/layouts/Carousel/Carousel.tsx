@@ -49,7 +49,7 @@ const Carousel = () => {
   };
 
   return (
-    <div className="relative">
+    <section className="relative">
       <CarouselButton
         className="absolute right-0 top-90 -translate-y-full md:top-100 xl:right-150 xl:top-133.5 xl:translate-x-full supports-[selector(::scroll-button(*))]:hidden"
         onLeftClick={leftClickHandler}
@@ -72,7 +72,7 @@ const Carousel = () => {
                   alt=""
                 />
               </picture>
-              <div className="py-16 px-[2.03125rem] md:px-16 xl:px-25 xl:py-34.75 xl:w-150 xl:shrink-0">
+              <div className="py-16 px-[2.03125rem] md:px-16 xl:px-25 xl:pt-34.75 xl:w-150 xl:shrink-0">
                 <h1 className="text-2 md:text-1 ">{title}</h1>
                 <p className="text-3-medium text-grey-500 mt-4">{text}</p>
                 <a
@@ -87,7 +87,7 @@ const Carousel = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

@@ -4,7 +4,7 @@ const links = ["home", "shop", "about", "contact"];
 
 const Navigation = () => {
   return (
-    <nav className="fixed z-20 flex w-full items-center justify-center xl:justify-start mt-12 xl:ms-16 xl:gap-14">
+    <nav className="fixed z-20 flex w-full items-center justify-center xl:justify-start mt-12 xl:mt-16 xl:ms-16 xl:gap-14">
       <img src={logo} alt="" />
       <NavMenu className="max-xl:absolute left-6 md:left-16">
         <NavList>
