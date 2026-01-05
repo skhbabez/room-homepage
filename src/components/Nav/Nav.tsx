@@ -9,7 +9,7 @@ const NavMenu = ({ children, className, ...props }: ComponentProps<"div">) => {
       {...props}
     >
       <button
-        className="xl:hidden"
+        className="xl:hidden cursor-pointer"
         popoverTarget="navigation"
         popoverTargetAction="show"
       >
@@ -38,7 +38,11 @@ const NavMenu = ({ children, className, ...props }: ComponentProps<"div">) => {
         popover="auto"
       >
         <div className="flex justify-between">
-          <button popoverTarget="navigation" popoverTargetAction="hide">
+          <button
+            className="cursor-pointer"
+            popoverTarget="navigation"
+            popoverTargetAction="hide"
+          >
             <img className="h-[0.9725rem]" src={close} alt="close navigation" />
           </button>
           {children}
@@ -64,4 +68,37 @@ const NavItem = ({ children, className, ...props }: ComponentProps<"li">) => {
   );
 };
 
-export { NavMenu, NavItem, NavList };
+const NavLink = ({ children, className, ...props }: ComponentProps<"a">) => {
+  return (
+    <a
+      className={clsx(
+        "relative text-3-semibold text-black xl:text-white outline-none group",
+        className
+      )}
+      {...props}
+    >
+      {children}
+      <div
+        className="absolute border-t-2 text-black xl:text-white w-[50%] left-1/2 -translate-x-1/2
+      transition-[display, translate, opacity]
+      transition-discrete
+      ease-in
+      duration-200
+      
+      opacity-0
+      group-hover:opacity-100
+      group-focus-visible:opacity-100
+      starting:group-hover:opacity-0
+      starting:group-focus-visible:opacity-0
+      
+      -translate-y-1.5
+      group-hover:translate-y-0
+      group-focus-visible:translate-y-0
+      starting:group-hover:-translate-y-1.5
+      starting:group-focus-visible:-translate-y-1.5
+      "
+      ></div>
+    </a>
+  );
+};
+export { NavMenu, NavItem, NavList, NavLink };

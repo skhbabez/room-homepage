@@ -1,4 +1,4 @@
-import { NavItem, NavList, NavMenu } from "../../components/Nav/Nav";
+import { NavItem, NavLink, NavList, NavMenu } from "../../components/Nav/Nav";
 import logo from "../../assets/logo.svg";
 const links = ["home", "shop", "about", "contact"];
 
@@ -9,7 +9,9 @@ const Navigation = () => {
       <NavMenu className="max-xl:absolute left-6 md:left-16">
         <NavList>
           {links.map((link) => (
-            <NavItem key={link}>{link}</NavItem>
+            <NavItem key={link}>
+              <NavLink href="#"> {link}</NavLink>
+            </NavItem>
           ))}
         </NavList>
       </NavMenu>

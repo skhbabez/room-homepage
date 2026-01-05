@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { NavMenu, NavItem, NavList } from "./Nav";
+import { NavMenu, NavItem, NavList, NavLink } from "./Nav";
 
 const meta = {
   component: NavMenu,
@@ -17,10 +17,18 @@ export const Default: Story = {
   render: (args) => (
     <NavMenu {...args}>
       <NavList>
-        <NavItem>home</NavItem>
-        <NavItem>shop</NavItem>
-        <NavItem>about</NavItem>
-        <NavItem>contact</NavItem>
+        <NavItem>
+          <NavLink href="#">home</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#">shop</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#">about</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#">contact</NavLink>
+        </NavItem>
       </NavList>
     </NavMenu>
   ),
