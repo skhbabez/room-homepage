@@ -34,6 +34,10 @@ Users should be able to:
 
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
+- [Tailwind CSS](https://tailwindcss.com/) - CSS framework
+- [Vite](https://vitejs.dev/) - Build tool
+- [Storybook](https://storybook.js.org/) - Component development
+- [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) - Native popover functionality
 
 ### What I learned
 
@@ -93,8 +97,37 @@ Modern CSS also offers ::scroll-button as a pseudo-class to create CSS-only caro
 }
 ```
 
+### Navigation
+
+I wanted to try out a CSS only solution, since the popover API is now newly available. I used the typical style you find in component libraries like shadcn to make it modular. Using the popover API, it was surprisingly trivial to create a fully responsive and animated menu. The transitions were especially challenging and it took some trial and error to get them right.
+
+```tsx
+<div
+        className="w-full fixed bg-white py-11.75 px-[1.51375rem] md:px-[3.96875rem]
+        xl:hidden
+
+        -translate-y-full
+        [:popover-open]:translate-y-0
+        starting:[:popover-open]:-translate-y-full
+        transition-discrete
+        transition-[translate,display,overlay]
+        duration-800
+
+        backdrop:bg-black/0
+        [:popover-open]:backdrop:bg-black/50
+        starting:[:popover-open]:backdrop:bg-black/0
+        backdrop:transition-[background-color,display,overlay]
+        backdrop:duration-800
+        backdrop:transition-discrete
+        "
+        id="navigation"
+        popover="auto"
+      >
+```
+
 ### Continued development
 
 ### Useful resources
 
 [CSS only Carousels](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Overflow/Carousels) - This helped me create the css only carousel for non- firefox users
+[Animating popovers](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using#animating_popovers) - I used this as a reference to create the transitions for my popovers
