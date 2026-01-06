@@ -79,7 +79,9 @@ const Carousel = () => {
                   href="#"
                   className="outline-none group flex items-center justify-between md:justify-self-start gap-6 xl:gap-8 mt-8 md:mt-6"
                 >
-                  <span className="uppercase text-4 peer">shop now</span>
+                  <span className="uppercase text-4 peer mr-[-0.78125rem]">
+                    shop now
+                  </span>
                   <img
                     className="group-hover:translate-x-7 group-focus-visible:translate-x-7 transition-transform duration-600 ease-in-out "
                     src={arrow}
